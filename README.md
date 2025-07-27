@@ -1,12 +1,34 @@
-# React + Vite
+# 📺 ইউটিউব UI - শুধু সামনের মুখ!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+এই প্রজেক্টে আমরা ইউটিউবের মতো দেখতে একটা ফ্রন্টেন্ড বানিয়েছি। তবে আসল ইউটিউব না, চশমা পরে দেখতে হবে 👓
 
-Currently, two official plugins are available:
+## 🎯 কী কী আছে এই প্রজেক্টে?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ সুন্দর একটা ন্যাভবার (Logo + সার্চ বাটন, যদিও কাজ করে না 😅)  
+✅ কিছু সাজেস্টেড ভিডিও কার্ড — থাম্বনেইল সহ!  
+✅ ভিডিও পেজে গেলে টাইটেল, বিবরণ, ভিউ কাহিনী দেখা যাবে  
+✅ পুরোটা React দিয়ে বানানো, Tailwind দিয়ে সাজানো  
+✅ একদম মিস্টি UI! 🤩
 
-## Expanding the ESLint configuration
+## ⚠️ কী কী নেই?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+❌ ভিডিও চালু হবে না (Netflix বানাইনি ভাই 😆)  
+❌ সার্চ করলে কিছুই হবে না, কারণ ব্যাকেন্ড নেই  
+❌ কোন ইউজার লগইন/কমেন্ট সিস্টেম নেই  
+❌ এটা শুধু UI, ডেমো দেখানোর জন্য  
+
+## 🛠️ টেকনোলজি
+
+- React.js ⚛️  
+- Tailwind CSS 🌪️  
+
+## 🧪 রান করার নিয়ম
+
+```bash
+git clone https://github.com/kazirobin/mytube-assignment.git
+cd mytube-assignment
+npm i
+npm run dev 
+```
+
+then see your video 🙂🙂 
