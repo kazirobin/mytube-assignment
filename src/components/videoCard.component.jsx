@@ -6,7 +6,7 @@ class VideoCard extends Component {
       <div className="grid grid-cols-3 bg-white rounded-xl overflow-hidden shadow-md m-2">
     
         <img
-          src="src/images/you.jpeg"  
+          src="/images/you.jpeg"  
           alt="Video Thumbnail"
           className="w-full h-auto object-cover md:h-full"
         />
