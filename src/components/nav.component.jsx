@@ -1,12 +1,12 @@
 import { Component } from "react";
 import Logo from "./logo.component";
-import Search from "./search.component";
-import UserIcon from "./userIcon.component";
+import Search from "./nav.search.component";
+import UserIcon from "./nav.user.icon.component";
 
 class NavBar extends Component {
   render() {
     return (
-      <div className="p-2 mx-2 my-6  bg-white">
+      <div className="p-2 mx-2">
         {/* Small screen: two rows, md+: one row */}
         <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-4">
           

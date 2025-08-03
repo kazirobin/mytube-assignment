@@ -1,16 +1,18 @@
-import NavBar from "./navbar.component";  
-import VideoWraper from "./videoWraper.component";  
-import VideoLists from "./videoLists.component";  
+import NavBar from "./nav.component";  
+import VideoWrapper from "./video.wrapper.component";  
+import VideoLists from "./video.lists.component";  
+import { Component } from "react";
 
-function App() {  
-  return (  
-    <div className="min-h-screen ">  
+class App extends Component{  
+  render(){
+    return (  
+    <div className="min-h-screen bg-black">  
       <NavBar />  
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">  
         
         <div className="md:col-span-3">  
-          <VideoWraper />  
+          <VideoWrapper />  
         </div>  
 
         <div className="md:col-span-2">  
@@ -20,7 +22,8 @@ function App() {
         </div>  
       </div>  
     </div>  
-  );  
+  )
+  }  
 }  
 
 export default App;

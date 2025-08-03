@@ -1,5 +1,5 @@
 import {Component} from "react"
-import VideoCard from "./videoCard.component"
+import VideoCard from "./video.card.component"
 class VideoLists extends Component{
   render(){
     return(
