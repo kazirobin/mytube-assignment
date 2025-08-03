@@ -20,7 +20,7 @@ class NavBar extends Component {
           </div>
 
           {/* Second row on small, middle item on md+ */}
-          <div className="flex  md:flex-1   ">
+          <div className="flex flex-1 md:px-20 lg:px-30">
             <Search />
           </div>
           <div className="hidden md:block">

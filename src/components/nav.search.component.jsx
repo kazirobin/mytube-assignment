@@ -9,8 +9,8 @@ class Search extends Component{
   render(){
     return(
       <>
-<div className="mx-auto flex items-center gap-4">
-        <div className="flex w-120 md:mx-auto overflow-hidden rounded-full border border-gray-500  ">
+<div className="mx-auto flex flex-1 items-center gap-4">
+        <div className="flex w-full md:mx-auto overflow-hidden rounded-full border border-gray-500  ">
         <input type="text" placeholder="Search here ...." className="focus:outline-none focus:text-gray-500 focus:font-semibold focus:ps-3 flex-1 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500" id="searchInput"/>
         <button onClick={this.handleSearch} className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer">
         <HiOutlineMagnifyingGlass/>
