@@ -4,13 +4,16 @@ class VideoMedia extends Component {
   render() {
     return (
       <>
-        <h1 className="shadow-2xl border   p-2 m-2 rounded-xl bg-amber-100 ">
-          <img
-            src="/images/youtube.jpeg"
-            alt=""
-            className="w-full p-2 rounded-xl"
-          />
-        </h1>
+        <iframe
+          width="670"
+          height="377"
+          src="https://www.youtube.com/embed/XvOgmfLxj8w"
+          title="3 MUST SEE Amazon Q CLI Vibe Coding Features!"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </>
     );
   }

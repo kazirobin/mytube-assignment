@@ -9,18 +9,15 @@ class App extends Component{
     <div className="min-h-screen bg-black">  
       <NavBar />  
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">  
-        
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">    
         <div className="md:col-span-3">  
           <VideoWrapper />  
         </div>  
-
-        <div className="md:col-span-2">  
-      
-        
+        <div className="md:col-span-2">     
           <VideoLists />  
         </div>  
       </div>  
+
     </div>  
   )
   }  

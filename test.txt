@@ -1,0 +1,11 @@
+execution context
+ memory creation
+ 1. outer = undefine
+ 2. innerFunc = undefine
+ execution
+ 1. outer = function(){}
+ 2. innerFunc = function(){}
+
+ 1. global scope
+ 2. outer scope
+ 3. inner scope
