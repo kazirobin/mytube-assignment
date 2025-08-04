@@ -6,8 +6,8 @@ class Logo extends Component {
     return (
       <div className="bg-black text-red-600 text-xl shadow-2xl flex items-center ">
         <HiBars3 className="text-white me-3"/>
-          <FaYoutube />
-        <h1 className="text-white oswald text-sm ps-1">YouTube</h1>
+          <FaYoutube className="bg-[radial-gradient(circle,_white_0%,black_40%)]"/>
+        <h1 className="text-white font-bold font- text-sm ps-1">YouTube</h1>
       </div>
     );
   }

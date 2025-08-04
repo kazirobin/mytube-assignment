@@ -5,8 +5,7 @@ class VideoMedia extends Component {
     return (
       <>
         <iframe
-          width="670"
-          height="377"
+          className="w-full h-96 block border border-red-950"
           src="https://www.youtube.com/embed/XvOgmfLxj8w"
           title="3 MUST SEE Amazon Q CLI Vibe Coding Features!"
           frameborder="0"

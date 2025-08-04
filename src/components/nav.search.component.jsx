@@ -9,7 +9,7 @@ class Search extends Component {
   render() {
     return (
       <>
-        <div className="mx-auto flex flex-1 items-center gap-4">
+        <div className="mx-auto flex flex-1 items-center gap-4 pe-1">
 
           <div className="flex w-full md:mx-auto overflow-hidden rounded-full border border-gray-500  ">
             <input
