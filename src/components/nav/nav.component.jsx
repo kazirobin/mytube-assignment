@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Logo from "./logo.component";
-import Search from "./nav.search.component";
-import UserIcon from "./nav.user.icon.component";
+import Search from "./search.component";
+import UserIcon from "./user.icon.component";
 
 class NavBar extends Component {
   render() {

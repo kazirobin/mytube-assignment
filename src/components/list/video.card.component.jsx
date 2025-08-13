@@ -5,9 +5,9 @@ class VideoCard extends Component {
     const {video,handleVideoMedia} = this.props
     const title = video.snippet.title
     const thumbnails = video.snippet.thumbnails.high.url
-    console.log(video.snippet.title)
+    // console.log(video.snippet.title)
     return (
-      <div className="grid grid-cols-3 bg-white rounded-xl overflow-hidden shadow-md m-2">
+      <div className="grid grid-cols-3 bg-white rounded-xl overflow-hidden shadow-md m-2 cursor-pointer" onClick={() => { handleVideoMedia(video) }}>
         <img
           src={thumbnails}  
           alt="Video Thumbnail"

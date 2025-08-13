@@ -11,7 +11,8 @@ class App extends Component {
     activeVideo: null,
   };
   handleVideoMedia = (item) => {
-    this.setState({ activeVideo: item });
+    const newState = this.setState({ activeVideo: item });
+    // console.log(item)
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
@@ -28,8 +29,8 @@ class App extends Component {
     const promise = axios.get(url)
     const success = (resolve) => { 
       
-      this.setState({videoList: resolve.data.items},() => { console.log(this.state.videoList) })
-      console.log("success",resolve.data.items)
+      this.setState({videoList: resolve.data.items})
+      // console.log("success",resolve.data.items)
       // console.log(newList)
      }
     const error = (reject) => { console.log("error") }
@@ -40,11 +41,11 @@ class App extends Component {
       <div className="min-h-screen bg-black">
         <NavBar handleSearchInput={this.handleSearchInput} handleSearchButton={this.handleSearchButton}/>
         <div>
-          <h1 className="text-white">search Text : {this.state.searchText}</h1>
+          <h1 className="text-white">searched Text : {this.state.searchText}</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">
           <div className="md:col-span-3">
-            <VideoWrapper />
+            <VideoWrapper activeVideo={this.state.activeVideo}/>
           </div>
           <div className="md:col-span-2">
             <VideoLists videoList={this.state.videoList} handleVideoMedia={this.handleVideoMedia}/>

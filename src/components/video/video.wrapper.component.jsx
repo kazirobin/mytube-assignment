@@ -4,10 +4,11 @@ import VideoDetails from "./video.details.component"
 
 class VideoWrapper extends Component{
   render(){
+    const {activeVideo} = this.props
     return(
       <div>
-        <VideoMedia/>
-        <VideoDetails/>
+        <VideoMedia activeVideo={activeVideo}/>
+        <VideoDetails activeVideo={activeVideo}/>
       </div>
       )
   }
