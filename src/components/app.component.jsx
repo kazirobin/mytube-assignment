@@ -20,7 +20,7 @@ class App extends Component {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
     const key = "AIzaSyCyO8v_hLa0RujrhX2iM-NsMpA29Tgaa1c";
     // const q = this.state.searchText;
-    const q = "React Tutorial";
+    const q = this.state.searchText;
     const part = "snippet";
     const type = "video"
     const maxResults = 5;
@@ -47,7 +47,7 @@ class App extends Component {
             <VideoWrapper />
           </div>
           <div className="md:col-span-2">
-            <VideoLists videoList={this.state.videoList}/>
+            <VideoLists videoList={this.state.videoList} handleVideoMedia={this.handleVideoMedia}/>
           </div>
         </div>
       </div>

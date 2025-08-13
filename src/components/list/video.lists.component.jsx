@@ -2,7 +2,7 @@ import {Component} from "react"
 import VideoCard from "./video.card.component"
 class VideoLists extends Component{
   render(){
-    const {videoList} = this.props
+    const {videoList,handleVideoMedia} = this.props
     return(
       <>
         <h1 className="text-red-600 font-bold shadow-2xl border  p-2 m-2 rounded-xl bg-amber-100 lg:text-4xl text-center">
@@ -13,7 +13,7 @@ class VideoLists extends Component{
 
           {videoList.length < 1 && <h1 className="text-white">Please search at first...</h1>}
           </h1>
-          {videoList.map((video,index) => { return <div key={index}><VideoCard video={video}/></div> })}
+          {videoList.map((video,index) => { return <div key={index}><VideoCard video={video} handleVideoMedia={handleVideoMedia}/></div> })}
           {/* <VideoCard/> */}
         </div>
       </>
