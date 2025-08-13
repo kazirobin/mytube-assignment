@@ -5,29 +5,19 @@ import UserIcon from "./nav.user.icon.component";
 
 class NavBar extends Component {
   render() {
+    const {handleSearchInput,handleSearchButton} = this.props
     return (
       <div className="p-2 mx-2">
-        {/* Small screen: two rows, md+: one row */}
         <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-4">
-          
-          {/* First row: Logo and UserIcon on small, row-wise on md+ */}
           <div className="flex justify-between items-center">
             <Logo />
-          <div className="md:hidden">
-            
-            <UserIcon />
+          <div className="md:hidden"><UserIcon /></div>
           </div>
-          </div>
-
-          {/* Second row on small, middle item on md+ */}
           <div className="flex flex-1 md:px-20 lg:px-30">
-            <Search />
-          </div>
-          <div className="hidden md:block">
-            
-            <UserIcon />
+            <Search handleSearchInput={handleSearchInput} handleSearchButton={handleSearchButton}/>
           </div>
 
+          <div className="hidden md:block"><UserIcon /></div>
         </div>
       </div>
     );
