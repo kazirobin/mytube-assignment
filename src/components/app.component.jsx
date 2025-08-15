@@ -16,6 +16,7 @@ class App extends Component {
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
+    this.handleSearchButton()
   };
   handleSearchButton = () => {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
@@ -39,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="min-h-screen bg-black">
-        <NavBar handleSearchInput={this.handleSearchInput} handleSearchButton={this.handleSearchButton}/>
+        <NavBar handleSearchInput={this.handleSearchInput} handleSearchButton={this.handleSearchButton} handleVideoMedia={this.handleVideoMedia} videoList={this.state.videoList}/>
         <div>
           <h1 className="text-white">searched Text : {this.state.searchText}</h1>
         </div>

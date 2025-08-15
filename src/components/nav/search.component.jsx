@@ -1,17 +1,18 @@
 import { Component } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { IoMdMic } from "react-icons/io";
+import VideoLists from "../list/video.lists.component";
 class Search extends Component {
   handleSearch = () => {
     const input = document.querySelector("#searchInput");
     input.value = "";
   };
   render() {
-    const {handleSearchInput,handleSearchButton} = this.props
+    const {handleSearchInput,handleSearchButton,handleVideoMedia,videoList} = this.props
     return (
       <>
         <div className="mx-auto flex flex-1 items-center gap-4 pe-1">
-          <div className="flex w-full md:mx-auto overflow-hidden rounded-full border border-gray-500  ">
+          <div className="flex w-full md:mx-auto  rounded-full border border-gray-500 relative">
             <input
               type="text"
               placeholder="Search here ...."
@@ -21,10 +22,13 @@ class Search extends Component {
             />
             <button
               onClick={handleSearchButton}
-              className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer"
+              className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-e-2xl"
             >
               <HiOutlineMagnifyingGlass />
             </button>
+            <div className="absolute text-white left-0 top-10 bg-amber-300 block">
+              <VideoLists handleVideoMedia={handleVideoMedia} videoList={videoList} />
+            </div>
           </div>
           <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-8 w-8 justify-center rounded-full">
             <IoMdMic className="text-white" />
