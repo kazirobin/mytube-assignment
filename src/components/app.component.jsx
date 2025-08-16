@@ -21,7 +21,6 @@ class App extends Component {
   handleSearchButton = () => {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
     const key = "AIzaSyCyO8v_hLa0RujrhX2iM-NsMpA29Tgaa1c";
-    // const q = this.state.searchText;
     const q = this.state.searchText;
     const part = "snippet";
     const type = "video"
