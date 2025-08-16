@@ -15,15 +15,12 @@ class App extends Component {
     this.setState((prevState) => ({
       Suggestion: !prevState.Suggestion,
     }));
-    console.log("active Suggestion", this.state.Suggestion);
   };
   handleVideoMedia = (item) => {
     const newState = this.setState({ activeVideo: item });
-    // console.log(item)
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
-    
   };
   handleSearchButton = () => {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
@@ -36,6 +33,7 @@ class App extends Component {
     const promise = axios.get(url);
     const success = (resolve) => {
       this.setState({ videoList: resolve.data.items });
+      console.log("success");
     };
     const error = (reject) => {
       console.log("error");
@@ -56,7 +54,6 @@ class App extends Component {
       }, 5000);
     }
   }
-
   render() {
     return (
       <div className="min-h-screen bg-black">
