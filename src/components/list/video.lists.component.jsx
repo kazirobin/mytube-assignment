@@ -10,12 +10,8 @@ class VideoLists extends Component{
         </h1>
         <div className="flex flex-col gap-2">
           <h1 className="text-white">
-
           {videoList.length < 1 ? "Please search at first..." : videoList.map((video,index) => { return <div key={index}><VideoCard video={video} handleVideoMedia={handleVideoMedia}/></div> })}
-
           </h1>
-          {}
-          {/* <VideoCard/> */}
         </div>
       </>
       )

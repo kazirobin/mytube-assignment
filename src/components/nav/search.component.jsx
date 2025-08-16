@@ -2,13 +2,21 @@ import { Component } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { IoMdMic } from "react-icons/io";
 import VideoLists from "../list/video.lists.component";
+import Suggestions from "./suggestions.component";
 class Search extends Component {
   handleSearch = () => {
     const input = document.querySelector("#searchInput");
     input.value = "";
   };
   render() {
-    const {handleSearchInput,handleSearchButton,handleVideoMedia,videoList} = this.props
+    const {
+      handleSearchInput,
+      handleSearchButton,
+      handleVideoMedia,
+      videoList,
+      handleSuggestion,
+      Suggestion,
+    } = this.props;
     return (
       <>
         <div className="mx-auto flex flex-1 items-center gap-4 pe-1">
@@ -18,16 +26,26 @@ class Search extends Component {
               placeholder="Search here ...."
               className="focus:outline-none focus:text-gray-500 focus:font-semibold focus:ps-3 flex-1 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500"
               id="searchInput"
+              onClick={handleSuggestion}
               onChange={handleSearchInput}
             />
             <button
-              onClick={handleSearchButton}
+              onClick={() => {
+                handleSearchButton();
+                handleSuggestion();
+              }}
               className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-e-2xl"
             >
               <HiOutlineMagnifyingGlass />
             </button>
-            <div className="absolute text-white left-0 top-10 bg-amber-300 block">
-              <VideoLists handleVideoMedia={handleVideoMedia} videoList={videoList} />
+            <div className="absolute text-white left-0 top-10 block">
+              {Suggestion && (
+                <Suggestions
+                  handleVideoMedia={handleVideoMedia}
+                  videoList={videoList}
+                  handleSuggestion={handleSuggestion}
+                />
+              )}
             </div>
           </div>
           <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-8 w-8 justify-center rounded-full">

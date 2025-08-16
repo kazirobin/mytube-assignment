@@ -12,7 +12,9 @@ class VideoDetails extends Component {
           Here this video details
         </h1>
         <div>
-          <h1 className="text-white font-bold text-5xl">{activeVideo.snippet.title}</h1>
+          <h1 className="text-white font-bold text-5xl">
+            {activeVideo.snippet.title}
+          </h1>
         </div>
       </>
     );
