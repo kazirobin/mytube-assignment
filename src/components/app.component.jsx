@@ -36,7 +36,7 @@ class App extends Component {
     const q = this.state.searchText;
     const part = "snippet";
     const type = this.state.type;
-    const maxResults = 5;
+    const maxResults = 10;
     const url = `${baseUrl}?key=${key}&q=${q}&part=${part}&type=${type}&maxResults=${maxResults}`;
     const promise = axios.get(url);
     const success = (resolve) => {
@@ -58,7 +58,7 @@ class App extends Component {
       }
       // Set new timeout
       this.searchTimeout = setTimeout(() => {
-        // this.handleSearchButton();
+        this.handleSearchButton();
       }, 1000);
     }
   }
