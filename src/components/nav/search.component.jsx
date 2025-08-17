@@ -49,7 +49,7 @@ class Search extends Component {
               }}
               className="px-4 ms-3 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl"
             >
-              <select name="" id="" value={type} className="bg-gray-700" onChange={handleType}>
+              <select name="" id="" value={type} className="bg-gray-700 hover:bg-gray-800 h-8 w-22" onChange={handleType}>
                 <option value="video">video</option>
                 <option value="channel">channel</option>
                 <option value="playlist">playlist</option>
