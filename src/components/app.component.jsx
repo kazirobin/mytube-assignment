@@ -56,7 +56,7 @@ class App extends Component {
       }
       // Set new timeout
       this.searchTimeout = setTimeout(() => {
-        this.handleSearchButton();
+        // this.handleSearchButton();
       }, 1000);
     }
   }
