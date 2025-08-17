@@ -12,7 +12,9 @@ class App extends Component {
     activeVideo: null,
     type: "",
   };
-  handleType = (event) => { this.setState({type:event.target.value}) }
+  handleType = (event) => {
+    this.setState({ type: event.target.value });
+  };
   handleSuggestion = () => {
     this.setState((prevState) => ({
       Suggestion: !prevState.Suggestion,

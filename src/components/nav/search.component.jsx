@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { IoMdMic } from "react-icons/io";
-import VideoLists from "../list/video.lists.component";
 import Suggestions from "./suggestions.component";
 class Search extends Component {
   handleSearch = () => {
@@ -40,8 +39,6 @@ class Search extends Component {
             >
               <HiOutlineMagnifyingGlass />
             </button>
-
-
             <button
               onClick={() => {
                 handleSearchButton();
@@ -49,14 +46,18 @@ class Search extends Component {
               }}
               className="px-4 ms-3 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl"
             >
-              <select name="" id="" value={type} className="bg-gray-700 hover:bg-gray-800 h-8 w-22" onChange={handleType}>
+              <select
+                name=""
+                id=""
+                value={type}
+                className="bg-gray-700 hover:bg-gray-800 h-8 w-22"
+                onChange={handleType}
+              >
                 <option value="video">video</option>
                 <option value="channel">channel</option>
                 <option value="playlist">playlist</option>
               </select>
             </button>
-
-
             <div className="absolute text-white left-0 top-10 block">
               {Suggestion && (
                 <Suggestions
@@ -70,7 +71,6 @@ class Search extends Component {
           <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-8 w-8 justify-center rounded-full">
             <IoMdMic className="text-white" />
           </div>
-          
         </div>
       </>
     );
