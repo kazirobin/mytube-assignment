@@ -34,7 +34,7 @@ class App extends Component {
     // AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA
     // AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ
     // AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc
-    const key = "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ";
+    const key = "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc";
     const q = this.state.searchText;
     const part = "snippet";
     const type = this.state.type;
