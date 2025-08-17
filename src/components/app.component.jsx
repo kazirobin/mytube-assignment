@@ -10,7 +10,9 @@ class App extends Component {
     videoList: [],
     Suggestion: false,
     activeVideo: null,
+    type: "",
   };
+  handleType = (event) => { this.setState({type:event.target.value}) }
   handleSuggestion = () => {
     this.setState((prevState) => ({
       Suggestion: !prevState.Suggestion,
@@ -33,7 +35,7 @@ class App extends Component {
     const key = "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ";
     const q = this.state.searchText;
     const part = "snippet";
-    const type = "video";
+    const type = this.state.type;
     const maxResults = 5;
     const url = `${baseUrl}?key=${key}&q=${q}&part=${part}&type=${type}&maxResults=${maxResults}`;
     const promise = axios.get(url);
@@ -70,6 +72,8 @@ class App extends Component {
           videoList={this.state.videoList}
           handleSuggestion={this.handleSuggestion}
           Suggestion={this.state.Suggestion}
+          type={this.state.type}
+          handleType={this.handleType}
         />
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">
           <div className="md:col-span-3">

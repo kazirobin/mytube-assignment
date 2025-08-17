@@ -16,6 +16,8 @@ class Search extends Component {
       videoList,
       handleSuggestion,
       Suggestion,
+      type,
+      handleType,
     } = this.props;
     return (
       <>
@@ -38,6 +40,23 @@ class Search extends Component {
             >
               <HiOutlineMagnifyingGlass />
             </button>
+
+
+            <button
+              onClick={() => {
+                handleSearchButton();
+                handleSuggestion();
+              }}
+              className="px-4 ms-3 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl"
+            >
+              <select name="" id="" value={type} className="bg-gray-700" onChange={handleType}>
+                <option value="video">video</option>
+                <option value="channel">channel</option>
+                <option value="playlist">playlist</option>
+              </select>
+            </button>
+
+
             <div className="absolute text-white left-0 top-10 block">
               {Suggestion && (
                 <Suggestions
@@ -51,6 +70,7 @@ class Search extends Component {
           <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-8 w-8 justify-center rounded-full">
             <IoMdMic className="text-white" />
           </div>
+          
         </div>
       </>
     );

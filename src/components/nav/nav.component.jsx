@@ -12,6 +12,8 @@ class NavBar extends Component {
       videoList,
       handleSuggestion,
       Suggestion,
+      type,
+      handleType,
     } = this.props;
     return (
       <div className="p-2 mx-2">
@@ -30,6 +32,8 @@ class NavBar extends Component {
               videoList={videoList}
               handleSuggestion={handleSuggestion}
               Suggestion={Suggestion}
+              type={type}
+              handleType={handleType}
             />
           </div>
           <div className="hidden md:block">
