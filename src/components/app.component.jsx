@@ -24,6 +24,12 @@ class App extends Component {
   };
   handleSearchButton = () => {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
+    // AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ
+    // AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI
+    // AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU
+    // AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA
+    // AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ
+    // AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc
     const key = "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ";
     const q = this.state.searchText;
     const part = "snippet";
@@ -51,7 +57,7 @@ class App extends Component {
       // Set new timeout
       this.searchTimeout = setTimeout(() => {
         this.handleSearchButton();
-      }, 5000);
+      }, 1000);
     }
   }
   render() {
