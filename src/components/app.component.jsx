@@ -6,7 +6,7 @@ import axios from "axios";
 
 class App extends Component {
   state = {
-    searchText: "",
+    searchText: "Saiyaara Title Song",
     videoList: [],
     Suggestion: false,
     activeVideo: null,
