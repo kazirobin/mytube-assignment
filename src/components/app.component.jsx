@@ -31,6 +31,7 @@ class App extends Component {
   };
   handleVideoMedia = (item) => {
     const newState = this.setState({ activeVideo: item });
+    console.log(item)
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
