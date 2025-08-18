@@ -4,7 +4,12 @@ export default class Suggestions extends Component {
   render() {
     const { handleVideoMedia, videoList, handleSuggestion } = this.props;
     return (
-      <ul className="bg-black" onClick={handleSuggestion}>
+      <ul
+        className="bg-black"
+        onClick={() => {
+          handleSuggestion(false);
+        }}
+      >
         {/* Suggestions */}
         {videoList.map((video, index) => {
           return (

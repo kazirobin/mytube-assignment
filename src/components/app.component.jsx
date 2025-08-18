@@ -24,9 +24,9 @@ class App extends Component {
   handleType = (event) => {
     this.setState({ type: event.target.value });
   };
-  handleSuggestion = () => {
-    this.setState((prevState) => ({
-      Suggestion: !prevState.Suggestion,
+  handleSuggestion = (condition) => {
+    this.setState(() => ({
+      Suggestion: condition,
     }));
   };
   handleVideoMedia = (item) => {
