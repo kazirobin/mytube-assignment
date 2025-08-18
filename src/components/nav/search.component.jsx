@@ -28,14 +28,14 @@ class Search extends Component {
               className="focus:outline-none focus:text-gray-500 focus:font-semibold focus:ps-3 flex-1 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500"
               id="searchInput"
               onClick={handleSuggestion}
-              onChange={() => {
-                handleSearchInput();
+              onChange={(e) => {
+                handleSearchInput(e);
                 handleSuggestion(true)
               }}
             />
             <button
               onClick={() => {
-                handleSearchButton();
+               
                 handleSuggestion(false);
               }}
               className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-e-2xl"
