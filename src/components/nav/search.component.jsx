@@ -55,6 +55,7 @@ class Search extends Component {
                 className="bg-gray-700 hover:bg-gray-800 h-8 w-22"
                 onChange={handleType}
               >
+                <option value="video,channel,playlist">all</option>
                 <option value="video">video</option>
                 <option value="channel">channel</option>
                 <option value="playlist">playlist</option>
