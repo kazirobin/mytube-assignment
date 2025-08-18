@@ -11,6 +11,15 @@ class App extends Component {
     Suggestion: false,
     activeVideo: null,
     type: "",
+    keys: [
+      "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ",
+      "AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI",
+      "AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU",
+      "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
+      "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
+      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
+      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc"
+    ],
   };
   handleType = (event) => {
     this.setState({ type: event.target.value });
@@ -26,30 +35,44 @@ class App extends Component {
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
   };
-  handleSearchButton = () => {
-    const baseUrl = "https://www.googleapis.com/youtube/v3/search";
-    // AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ
-    // AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI
-    // AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU
-    // AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA
-    // AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ
-    // AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc
-    const key = "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc";
-    const q = this.state.searchText;
-    const part = "snippet";
-    const type = this.state.type;
-    const maxResults = 10;
-    const url = `${baseUrl}?key=${key}&q=${q}&part=${part}&type=${type}&maxResults=${maxResults}`;
-    const promise = axios.get(url);
-    const success = (resolve) => {
-      this.setState({ videoList: resolve.data.items });
-      console.log("success");
-    };
-    const error = (reject) => {
-      console.log("error");
-    };
-    promise.then(success).catch(error);
-  };
+ handleSearchButton = async () => {
+  const baseUrl = "https://www.googleapis.com/youtube/v3/search";
+  const { searchText, type, keys } = this.state;
+  const part = "snippet";
+  const maxResults = 10;
+
+  let workingKey = null;
+  let aliveKeys = [];
+  let deadKeys = [];
+
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&type=${type}&maxResults=${maxResults}`;
+
+    try {
+      const response = await axios.get(url);
+      if (response.status === 200) {
+        workingKey = key;
+        aliveKeys.push(key);
+        this.setState({ videoList: response.data.items });
+        console.log(`✅ Working API Key: ${key}`);
+        break; // Stop after finding the first working key
+      }
+    } catch (error) {
+      deadKeys.push(key);
+      console.log(`❌ Failed API Key: ${key}`);
+    }
+  }
+
+  if (!workingKey) {
+    console.log("🚫 No working API key found.");
+  }
+
+  console.log(`🔢 Total Keys: ${keys.length}`);
+  console.log(`🟢 Alive Keys: ${aliveKeys.length}`);
+  console.log(`🔴 Dead Keys: ${deadKeys.length}`);
+};
+
   searchTimeout = null;
   componentDidUpdate(prevProps, prevState) {
     // Only run debounce if searchTerm has changed
