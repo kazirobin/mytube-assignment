@@ -87,7 +87,7 @@ class App extends Component {
       }
       // Set new timeout
       this.searchTimeout = setTimeout(() => {
-        // this.handleSearchButton();
+        this.handleSearchButton();
       }, 1000);
     }
   }
@@ -104,7 +104,7 @@ class App extends Component {
           type={this.state.type}
           handleType={this.handleType}
         />
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-5  p-4">
           {/* <div className="md:col-span-3"> */}
           <div className={`${this.state.activeVideo ? "md:col-span-3" : ""}`}>
             
@@ -114,6 +114,7 @@ class App extends Component {
             <VideoLists
               videoList={this.state.videoList}
               handleVideoMedia={this.handleVideoMedia}
+              activeVideo={this.state.activeVideo}
             />
           </div>
         </div>
