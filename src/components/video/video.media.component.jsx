@@ -13,9 +13,9 @@ class VideoMedia extends Component {
             className="w-full h-96 block border border-red-950"
             src={`https://www.youtube.com/embed/${activeVideo.id.videoId}`}
             title="3 MUST SEE Amazon Q CLI Vibe Coding Features!"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
         ) : (
