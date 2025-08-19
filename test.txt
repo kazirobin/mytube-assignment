@@ -40,7 +40,7 @@ publishTime
 publishedAt
 : 
 "2025-06-03T05:30:10Z"
-thumbnails
+thumbnailsl
 : 
 default
 : 
