@@ -15,10 +15,10 @@ class App extends Component {
       "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ",
       "AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI",
       "AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU",
-      // "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
-      // "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
-      // "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
-      // "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc"
+      "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
+      "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
+      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
+      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc"
     ],
   };
   handleType = (event) => {
@@ -31,7 +31,7 @@ class App extends Component {
   };
   handleVideoMedia = (item) => {
     const newState = this.setState({ activeVideo: item });
-    console.log(item)
+    // console.log(item)
     const prevList = this.state.videoList
     const filter = prevList.filter(items => items.id.videoId !== item.id.videoId)
     // console.log("prevList",prevList.length, "filter",filter.length)
