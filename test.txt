@@ -9,3 +9,51 @@ execution context
  1. global scope
  2. outer scope
  3. inner scope
+
+
+ etag
+: 
+"kWY5Cd3RX6oXnQdq_S30wIAXv6Q"
+id
+: 
+{kind: 'youtube#video', videoId: 'BSJa1UytM8w'}
+kind
+: 
+"youtube#searchResult"
+snippet
+: 
+channelId
+: 
+"UCbTLwN10NoCU4WDzLf1JMOA"
+channelTitle
+: 
+"YRF"
+description
+: 
+"Book your tickets now: https://bookmy.show/Saiyaara | https://link.district.in/DSTRKT/psaiyaara A song for those in love & also for ..."
+liveBroadcastContent
+: 
+"none"
+publishTime
+: 
+"2025-06-03T05:30:10Z"
+publishedAt
+: 
+"2025-06-03T05:30:10Z"
+thumbnails
+: 
+default
+: 
+{url: 'https://i.ytimg.com/vi/BSJa1UytM8w/default.jpg', width: 120, height: 90}
+high
+: 
+{url: 'https://i.ytimg.com/vi/BSJa1UytM8w/hqdefault.jpg', width: 480, height: 360}
+medium
+: 
+{url: 'https://i.ytimg.com/vi/BSJa1UytM8w/mqdefault.jpg', width: 320, height: 180}
+[[Prototype]]
+: 
+Object
+title
+: 
+"Saiyaara Title Song | Ahaan Panday, Aneet Padda | Tanishk Bagchi, Faheem A, Arslan N | Irshad Kamil"

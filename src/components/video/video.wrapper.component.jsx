@@ -7,8 +7,12 @@ class VideoWrapper extends Component {
     const { activeVideo } = this.props;
     return (
       <div>
-        <VideoMedia activeVideo={activeVideo} />
-        <VideoDetails activeVideo={activeVideo} />
+        {activeVideo && (
+          <>
+            <VideoMedia activeVideo={activeVideo} />
+            <VideoDetails activeVideo={activeVideo} />
+          </>
+        )}
       </div>
     );
   }
