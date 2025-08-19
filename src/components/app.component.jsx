@@ -10,7 +10,7 @@ class App extends Component {
     videoList: [],
     Suggestion: false,
     activeVideo: null,
-    type: "",
+    type: "video",
     keys: [
       "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ",
       "AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI",
