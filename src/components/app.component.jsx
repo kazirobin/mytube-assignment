@@ -15,10 +15,10 @@ class App extends Component {
       "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ",
       "AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI",
       "AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU",
-      "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
-      "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
-      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
-      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc"
+      // "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
+      // "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
+      // "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
+      // "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc"
     ],
   };
   handleType = (event) => {
@@ -31,7 +31,7 @@ class App extends Component {
   };
   handleVideoMedia = (item) => {
     const newState = this.setState({ activeVideo: item });
-    // console.log(item)
+    console.log(item)
     const prevList = this.state.videoList
     const filter = prevList.filter(items => items.id.videoId !== item.id.videoId)
     // console.log("prevList",prevList.length, "filter",filter.length)
@@ -42,6 +42,7 @@ class App extends Component {
   };
  handleSearchButton = async () => {
   const baseUrl = "https://www.googleapis.com/youtube/v3/search";
+  const videoUrl = "https://www.googleapis.com/youtube/v3/videos";
   const { searchText, type, keys } = this.state;
   const part = "snippet";
   const maxResults = 10;
@@ -59,6 +60,13 @@ class App extends Component {
       if (response.status === 200) {
         workingKey = key;
         aliveKeys.push(key);
+        const videoIds = response.data.items
+        .map(item => item.id.videoId)
+        .filter(id=>id)
+        .join(",")
+        // console.log(videoIds)
+        const detailsUrl = `${videoUrl}?key=${key}&id=${videoIds}&part=snippet,statistics`
+        // const detailsResponse = await axios.get(detailsUrl)
         this.setState({ videoList: response.data.items });
         console.log(`✅ Working API Key: ${key}`);
         break; // Stop after finding the first working key
