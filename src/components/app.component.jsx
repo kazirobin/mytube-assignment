@@ -32,6 +32,10 @@ class App extends Component {
   handleVideoMedia = (item) => {
     const newState = this.setState({ activeVideo: item });
     console.log(item)
+    const prevList = this.state.videoList
+    const filter = prevList.filter(items => items.id.videoId !== item.id.videoId)
+    // console.log("prevList",prevList.length, "filter",filter.length)
+    this.setState({videoList:filter})
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
