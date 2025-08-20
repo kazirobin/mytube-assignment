@@ -4,9 +4,16 @@ import { IoMdMic } from "react-icons/io";
 import Suggestions from "./suggestions.component";
 import { BiFilter } from "react-icons/bi";
 class Search extends Component {
+  state = { filter: false };
   handleSearch = () => {
     const input = document.querySelector("#searchInput");
     input.value = "";
+    this.setState(
+      (prevState) => ({ filter: !prevState.filter }),
+      () => {
+        // console.log(this.state.filter);
+      }
+    );
   };
   render() {
     const {
@@ -31,35 +38,51 @@ class Search extends Component {
               onClick={handleSuggestion}
               onChange={(e) => {
                 handleSearchInput(e);
-                handleSuggestion(true)
+                handleSuggestion(true);
               }}
             />
             <button
               onClick={() => {
-                handleSearchButton()
+                handleSearchButton();
                 handleSuggestion(false);
               }}
               className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-e-2xl"
             >
               <HiOutlineMagnifyingGlass />
             </button>
-            <button
-              onClick={handleSearchButton}
-              className="px-4 ms-3  items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl relative group flex"
-            >
-              <BiFilter/>
-              <select
-                name=""
-                id=""
-                value={type}
-                className="bg-gray-700 hover:bg-gray-800 h-8 w-22 absolute left-0 top-7 rounded-xl hidden group-hover:block group-active:block group-focus:block"
-                onChange={handleType}
+            <button className="px-4 ms-3  items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl relative  flex">
+              <div
+                onClick={() => {
+                  handleSearchButton();
+                  this.handleSearch();
+                }}
               >
-                <option value="video,channel,playlist">All</option>
-                <option value="video">video</option>
-                <option value="channel">channel</option>
-                <option value="playlist">playlist</option>
-              </select>
+                <BiFilter />
+              </div>
+              {this.state.filter && (
+                <>
+                  <select
+                    name=""
+                    id=""
+                    value={type}
+                    className="bg-gray-700 hover:bg-gray-800 h-8 w-22 absolute left-0 top-7 rounded-xl  "
+                    onChange={(e) => {
+                      handleType(e);
+                      this.setState({ filter: false }, () => {
+                        handleSearchButton();
+                      });
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
+                    <option value="video,channel,playlist">All</option>
+                    <option value="video">video</option>
+                    <option value="channel">channel</option>
+                    <option value="playlist">playlist</option>
+                  </select>
+                </>
+              )}
             </button>
             <div className="absolute text-white left-0 top-10 block">
               {Suggestion && (
