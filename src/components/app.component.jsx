@@ -1,7 +1,7 @@
 import { Component } from "react";
 import NavBar from "./nav/nav.component";
-import VideoWrapper from "./video/video.wrapper.component";
-import VideoLists from "./list/video.lists.component";
+import VideoWrapper from "./videoWrap/video.wrapper.component";
+import VideoLists from "./videoList/video.lists.component";
 import axios from "axios";
 
 class App extends Component {
@@ -30,11 +30,10 @@ class App extends Component {
     }));
   };
   handleVideoMedia = (item) => {
-    const newState = this.setState({ activeVideo: item });
+    this.setState({ activeVideo: item });
     // console.log(item)
     const prevList = this.state.videoList
-    const filter = prevList.filter(items => items.id.videoId !== item.id.videoId)
-    // console.log("prevList",prevList.length, "filter",filter.length)
+    const filter = prevList.filter(items => items.id !== item.id)
     this.setState({videoList:filter})
   };
   handleSearchInput = (event) => {
@@ -53,7 +52,7 @@ class App extends Component {
 
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&type=${type}&maxResults=${maxResults}`;
+    const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
 
     try {
       const response = await axios.get(url);
@@ -65,15 +64,15 @@ class App extends Component {
         .filter(id=>id)
         .join(",")
         // console.log(videoIds)
-        const detailsUrl = `${videoUrl}?key=${key}&id=${videoIds}&part=snippet,statistics`
-        // const detailsResponse = await axios.get(detailsUrl)
+        const detailsUrl = `${videoUrl}?key=${key}&id=${videoIds}&part=snippet,statistics,contentDetails`
+        const detailsResponse = await axios.get(detailsUrl)
         this.setState({ videoList: response.data.items });
-        console.log(`✅ Working API Key: ${key}`);
+        console.log(`✅ Working API Key: ${key.slice(-4)}`);
         break; // Stop after finding the first working key
       }
     } catch (error) {
       deadKeys.push(key);
-      console.log(`❌ Failed API Key: ${key}`);
+      console.log(`❌ Failed API Key: ${key.slice(-4)}`);
     }
   }
 
@@ -82,7 +81,7 @@ class App extends Component {
   }
 
   console.log(`🔢 Total Keys: ${keys.length}`);
-  console.log(`🟢 Alive Keys: ${aliveKeys.length}`);
+  console.log(`🟢 Alive Keys: ${keys.length - deadKeys.length}`);
   console.log(`🔴 Dead Keys: ${deadKeys.length}`);
 };
 
@@ -117,9 +116,7 @@ class App extends Component {
           handleType={this.handleType}
         />
         <div className="grid grid-cols-1 md:grid-cols-5  p-4">
-          {/* <div className="md:col-span-3"> */}
           <div className={`${this.state.activeVideo ? "md:col-span-3" : ""}`}>
-            
             <VideoWrapper activeVideo={this.state.activeVideo} />
           </div>
           <div className={` ${this.state.activeVideo ? "md:col-span-2" : "col-span-5"}`}>

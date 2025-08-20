@@ -5,4 +5,4 @@ function greet() {
   console.log(message);
 }
 
-greet();
+// greet();

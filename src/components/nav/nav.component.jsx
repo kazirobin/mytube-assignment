@@ -4,6 +4,7 @@ import Search from "./search.component";
 import UserIcon from "./user.icon.component";
 
 class NavBar extends Component {
+  
   render() {
     const {
       handleSearchInput,

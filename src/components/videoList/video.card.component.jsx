@@ -6,7 +6,6 @@ class VideoCard extends Component {
     const title = video.snippet.title;
     const channelTitle = video.snippet.channelTitle;
     const thumbnails = video.snippet.thumbnails.high.url;
-    // console.log(video.snippet.title)
     return (
       <div
         className={`rounded-xl overflow-hidden shadow-md cursor-pointer ${

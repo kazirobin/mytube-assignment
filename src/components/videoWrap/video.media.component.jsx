@@ -10,7 +10,7 @@ class VideoMedia extends Component {
       <>
         {activeVideo && activeVideo.id.videoId ? (
           <iframe
-            className="w-full h-96 block border border-red-950"
+            className="w-full h-96 block"
             src={`https://www.youtube.com/embed/${activeVideo.id.videoId}`}
             title="3 MUST SEE Amazon Q CLI Vibe Coding Features!"
             frameBorder="0"
