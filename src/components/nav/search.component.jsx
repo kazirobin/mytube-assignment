@@ -28,12 +28,14 @@ class Search extends Component {
     } = this.props;
     return (
       <>
-        <div className="mx-auto flex justify-center items-center gap-4 pe-1">
-          <div className="flex w-full md:mx-auto  rounded-full border border-gray-500 relative">
+        <div className="mx-auto flex justify-center items-center h-5 sm:h-10 px-2">
+          <div className="flex w-full md:mx-auto  rounded-full relative">
             <input
               type="text"
               placeholder="Search here ...."
-              className="focus:outline-none focus:text-gray-500 focus:font-semibold focus:ps-3 flex-1 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500"
+              className="lg:w-80 border border-gray-400 
+              h-5 sm:h-full
+              rounded-2xl focus:border-red-400 focus:outline-none focus:text-gray-500 focus:font-semibold focus:ps-3 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500 "
               id="searchInput"
               onClick={handleSuggestion}
               onChange={(e) => {
@@ -46,11 +48,11 @@ class Search extends Component {
                 handleSearchButton();
                 handleSuggestion(false);
               }}
-              className="w-12 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-e-2xl"
+              className="w-6 sm:w-10 text-xs flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl"
             >
               <HiOutlineMagnifyingGlass />
             </button>
-            <button className="px-4 ms-3  items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl relative  flex">
+            <button className="px-1 mx-2 sm:px-4 sm:ms-3  items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl relative  flex">
               <div
                 onClick={() => {
                   handleSearchButton();
@@ -70,6 +72,7 @@ class Search extends Component {
                       handleType(e);
                       this.setState({ filter: false }, () => {
                         handleSearchButton();
+                        handleSuggestion(false);
                       });
                     }}
                     onClick={(e) => {
@@ -94,7 +97,7 @@ class Search extends Component {
               )}
             </div>
           </div>
-          <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-8 w-8 justify-center rounded-full">
+          <div className=" bg-gray-700 cursor-pointer hover:bg-gray-800 flex items-center h-5 px-1 sm:h-8 sm:w-8 justify-center rounded-full">
             <IoMdMic className="text-white" />
           </div>
         </div>

@@ -16,16 +16,16 @@ class NavBar extends Component {
       handleType,
     } = this.props;
     return (
-      <div className="mx-auto max-w-5xl flex justify-center h-auto pt-3">
-        <div className="p-2 mx-2">
-          <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-4">
-            <div className="flex items-center">
+      <div className=" flex justify-center pt-3">
+        <div className="p-2 mx-2 cursor-pointer" onMouseLeave={() => { handleSuggestion(false) }
+        }>
+          <div className=" flex flex-col md:flex-row md:items-center md:gap-2 gap-4 w-screen sm:w-auto">
+            <div className=" flex items-center">
               <Logo />
-              <div className="md:hidden">
+              <div className="ms-auto md:hidden">
                 <UserIcon />
               </div>
             </div>
-
             <div className=" md:px-6 lg:px-10">
               <Search
                 handleSearchInput={handleSearchInput}

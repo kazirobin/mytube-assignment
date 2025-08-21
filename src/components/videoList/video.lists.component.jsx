@@ -5,14 +5,16 @@ class VideoLists extends Component {
     const { videoList, handleVideoMedia, activeVideo } = this.props;
     return (
       <>
-        <div className="text-white grid grid-cols-3 gap-9 px-3 scroll-smooth">
+        <div className="text-white flex flex-wrap">
           {videoList.length < 1
-            ? "Please search at first."
+            ? "Please search at first..."
             : videoList.map((video, index) => {
                 return (
                   <div
                     key={index}
-                    className={`${activeVideo ? "md:w-full" : "w-full"}  p-2 `}
+                    className={`${
+                      activeVideo ? "md:w-full" : "w-full md:w-1/3"
+                    } sm:w-1/2 p-2 `}
                   >
                     <VideoCard
                       key={index}
