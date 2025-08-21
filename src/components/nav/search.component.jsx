@@ -28,7 +28,7 @@ class Search extends Component {
     } = this.props;
     return (
       <>
-        <div className="mx-auto flex flex-1 items-center gap-4 pe-1">
+        <div className="mx-auto flex justify-center items-center gap-4 pe-1">
           <div className="flex w-full md:mx-auto  rounded-full border border-gray-500 relative">
             <input
               type="text"
