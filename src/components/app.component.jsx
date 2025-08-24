@@ -65,7 +65,7 @@ class App extends Component {
     console.log(" api call");
   };
   searchTimeout = null;
-  componentWillUnmount() {
+  componentWillMount() {
     this.handleSearchButton();
   }
   componentDidUpdate(prevProps, prevState) {
