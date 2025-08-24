@@ -52,7 +52,7 @@ class App extends Component {
     const part = "snippet";
     const maxResults = 10;
 
-    const key = keys[3];
+    const key = keys[4];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
     response

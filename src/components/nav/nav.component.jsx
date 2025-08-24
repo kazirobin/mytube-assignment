@@ -16,7 +16,7 @@ const NavBar = ({
   searchText,
 }) => {
   return (
-    <div className=" flex justify-center pt-3 px-5 border-2 border-amber-400">
+    <div className=" flex justify-center pt-3 px-5">
       <div
         className="p-2 mx-2 cursor-pointer"
         onMouseLeave={() => {

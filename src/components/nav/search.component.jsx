@@ -17,13 +17,13 @@ const Search = ({
 }) => {
   return (
     <>
-      <div className="mx-auto flex justify-center items-center">
-        <div className="flex md:mx-auto  rounded-full relative">
+      <div className="mx-auto flex justify-between items-center">
+        <div className="flex flex-1 pe-0 sm:pe-25 lg:pe-0 md:mx-auto  rounded-full relative ">
           <input
           value={searchText}
             type="text"
             placeholder="Search here ...."
-            className="w-40 sm:w-80 border border-gray-400 
+            className="flex-1 sm:w-80 border border-gray-400 
               h-full text-white
               rounded-2xl focus:border-red-400 focus:outline-none 
              font-semibold px-3 focus:ps-3 p-1 placeholder:ps-3 placeholder:font-semibold placeholder:text-gray-500 "
