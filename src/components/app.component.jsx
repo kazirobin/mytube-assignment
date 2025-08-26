@@ -50,7 +50,7 @@ class App extends Component {
     const { searchText, type,maxResults } = this.state;
     const part = "snippet";
 
-    const key = import.meta.env.VITE_API_KEY_1;
+    const key = import.meta.env.VITE_API_KEY_2;
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
     response
