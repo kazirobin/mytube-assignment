@@ -1,5 +1,5 @@
 import VideoCard from "./video.card.component";
-const VideoLists = ({ videoList, handleVideoMedia, activeVideo }) => {
+const VideoLists = ({ videoList, handleVideoMedia, activeVideo,handleMaxResults }) => {
   return (
     <>
       <div className="text-white flex flex-wrap">
@@ -24,7 +24,7 @@ const VideoLists = ({ videoList, handleVideoMedia, activeVideo }) => {
             })}
       </div>
       <div className="pt-14 pb-12 flex justify-center">
-        <button className="text-white text-xl border-2 border-full border-red-300 hover:border-green-500 flex justify-center items-center rounded-full px-8 py-3 ">
+        <button onClick={handleMaxResults} className="cursor-pointer text-white text-xl border-2 border-full border-red-300 hover:border-green-500 flex justify-center items-center rounded-full px-6 py-2 ">
           Load More...
         </button>
       </div>

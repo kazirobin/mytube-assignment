@@ -38,6 +38,7 @@ const Search = ({
             onClick={() => {
               handleSearchButton();
               handleSuggestion(false);
+              handleVideoMedia(null)
             }}
             className="ms-2 px-2 text-xs flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white cursor-pointer rounded-2xl"
           >

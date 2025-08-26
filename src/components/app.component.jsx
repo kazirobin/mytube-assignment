@@ -11,15 +11,8 @@ class App extends Component {
     Suggestion: false,
     activeVideo: null,
     type: "video",
-    keys: [
-      "AIzaSyDioJFhL2Lm3Z-udOf6mJgqsO7LsEoAMvQ",
-      "AIzaSyDOIHU2vBG2SWDaQ52f3zCULOk1k3eOaWI",
-      "AIzaSyAH3CmZfNRE-yvcaxpRr0Fz-TRMbOCN_NU",
-      "AIzaSyDp5lGpGkdbrUY_WlcZit6sC_UILcwBlVA",
-      "AIzaSyCDU0Gq4N7eHESbqGnVww4qEF_YGvxV7kQ",
-      "AIzaSyCEpcuYMTLgHKqgR01H7RRCVhPX4Qs12gc",
-    ],
     filter: false,
+    maxResults: 6,
   };
   handleFilter = () => {
     this.setState((prevState) => ({
@@ -30,6 +23,12 @@ class App extends Component {
     this.setState({ type: value }, () => {
       this.handleFilter();
     });
+  };
+  handleMaxResults = () => {
+    this.setState((prevState) => ({
+      maxResults: prevState.maxResults + 3,
+    }));
+    console.log("maxresults",this.state.maxResults)
   };
   handleSuggestion = (condition) => {
     this.setState(() => ({
@@ -48,12 +47,10 @@ class App extends Component {
   };
   handleSearchButton = () => {
     const baseUrl = "https://www.googleapis.com/youtube/v3/search";
-    const { searchText, type, keys } = this.state;
+    const { searchText, type,maxResults } = this.state;
     const part = "snippet";
-    const maxResults = 10;
 
-    // const key = keys[4];
-    const key = import.meta.env.VITE_KEY;
+    const key = import.meta.env.VITE_API_KEY_1;
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
     response
@@ -72,14 +69,15 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.searchText !== this.state.searchText ||
-      prevState.type !== this.state.type
+      prevState.type !== this.state.type ||
+      prevState.maxResults !== this.state.maxResults
     ) {
       if (this.searchTimeout) {
         clearTimeout(this.searchTimeout);
       }
       this.searchTimeout = setTimeout(() => {
         this.handleSearchButton();
-      }, 1000);
+      }, 500);
     }
   }
   render() {
@@ -111,6 +109,7 @@ class App extends Component {
               videoList={this.state.videoList}
               handleVideoMedia={this.handleVideoMedia}
               activeVideo={this.state.activeVideo}
+              handleMaxResults={this.handleMaxResults}
             />
           </div>
         </div>
