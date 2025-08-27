@@ -1,0 +1,234 @@
+## JavaScript Bonus
+- Course Introduction
+- Javascript story - from console to v8 engine
+- How javascript executes the code - Behind the scene
+- Datatypes, variables and constants in Javascript
+- Operations in javascript
+- Primitives in javascript
+- Non Primitives in javascript
+- Five challenges on conditions in javascript
+- Facing ten challenges in Array and methods
+- Introduction to loops in javascript
+- Defeat 6 loop challenges in Javascript
+- Ten loop challenges to learn all kind of loops in javascript
+- Function, arrow function, THIS and context in javascript
+- Higher order function and nested functions in javascript
+
+## Getting Started with Node.js:From Core Concepts to Modules and File System
+
+- What is Node.js and Why Use It for Server-Side Development
+- Installing Node.js and Setting Up a Local Development Environment
+- Your First Node.js Script: Writing and Running Hello World
+- Node.js vs Browser JavaScript Engines: Key Differences
+- Understanding Node.js Modules and Their Role in Structuring Code
+- Working with Third-Party Modules using npm and Package.json
+- Using the File System (FS) Module to Read and Write Files
+- Understanding Blocking vs Non-Blocking Code Execution in Node.js
+- The Internal Architecture of Node.js: Event Loop and Thread Pool
+
+## Understanding Events and Buffers in Node.js: Building Reactive Apps
+
+- What Are Events in Node.js and Why Are They Important?
+- Creating and Using Event Emitters in Node.js
+- Building a Real-Time Chat App with Custom Events in Node.js
+- Introduction to Buffers in Node.js: What and Why
+- Working with Buffers in Node.js Using Practical Code Examples
+
+## Building Web Servers with Native Http Module in Node.js
+
+- Introduction to HTTP Protocol and Its Role in Web Communication
+- HTTP Methods and Status Codes Explained for Backend Developers
+- Creating a Basic HTTP Server with Core Node.js Modules
+- Deep Dive into HTTP Request Handling and Server Routing in Node.js
+- Building a Custom Server with Node.js: Hands-on Coding Session
+- Using API Clients to Test Node.js HTTP Endpoints
+- Challenge: Build a Custom Task with Native HTTP Server in Node.js
+
+## Express.js Fundamentals and Books Store Project
+
+- Introduction to Express Framework and Its Core Features
+- Creating Your First Express App and File Structure Setup
+- Understanding Semantic Versioning in Node Projects
+- REST API Design Principles for Modern Backend Development
+- Book Store API - Setting Up Routes and Controllers (Part 1)
+- Book Store API - Finalizing CRUD Features and Testing (Part 2)
+
+## Deep Dive into Advanced Express.js Features Including Middleware, Modularization
+
+- Understanding Middleware Functions and Their Execution in Express.js
+- Advanced Middleware Concepts and Custom Middleware Implementation
+- Creating and Integrating Custom Modules in Node.js Projects
+- Refactoring the Book Store API for Better Maintainability and Structure
+- The Model-View-Controller (MVC) Pattern in Scalable API Architecture
+
+## Building Full-Stack Applications with Reational Databases, ORMs, and API
+
+- Intro to Databases: SQL vs NoSQL for Modern Applications
+- What is an ORM and Why Use It in Application Development
+- Setting Up PostgreSQL with Docker for Local Development
+- Installing and Configuring Drizzle ORM with PostgreSQL
+- Migrating Book Store to Drizzle ORM – Part 1: Schema Setup
+- Migrating Book Store to Drizzle ORM – Part 2: Query Logic
+- Testing Your REST APIs Using Postman
+- Using Indexes in PostgreSQL to Speed Up Queries
+- Adding Foreign Key Relationships: Authors and Books
+
+## Authentication and Authorization
+
+- Understanding Authentication vs Authorization with Real-World Examples
+- What is Authentication? A Story-Based Introduction to Login Systems
+- Implementing Session-Based Authentication in Node.js Applications
+- Adding Session-Based Authentication Support Using Drizzle ORM
+- Building Secure Auth Workflows Using Express.js Middleware Functions
+- Creating Stateless Authentication Using JWT (JSON Web Tokens)
+- Introduction to Authorization and Role-Based Access Control (RBAC)
+- Implementing Role-Based Authorization Logic in Express.js Applications
+
+## No SQL with MongoDB -Bonus
+
+- Introduction to MongoDB (No SQL)
+- MongoDB Atlas Setup
+- MongoDB Mongoose Setup
+- Creating a Basic CRUD Application with MongoDB and Express
+- Authentication Middleware with Express and MongoDB
+- NodeJS Mongoose Aggregation Pipeline Introduction
+
+## Mega Project - URL Shortener with Auth, Postgres & Drizzle ORM
+
+- Overview of the URL Shortener Project
+- Tech Stack: Express, Drizzle ORM, JWT, PostgreSQL, and Zod
+- Bootstrapping a Clean Express Server Setup for Backend Development
+- Configuring PostgreSQL with Docker for Local Development Environment
+- Installing and Setting Up Drizzle ORM for Database
+- Designing and Implementing the User Schema using Drizzle ORM
+- Creating a Secure Signup Route
+- Adding Zod for Validating Incoming User Signup and Login Data
+- Refactoring: Moving User Logic and Validation to Separate Service Modules
+- Building a Login Route with JWT Authentication and Token Response
+- Refactoring: Extracting JWT Sign and Verify Logic into Utility Functions
+- Creating Authentication Middleware to Extract and Validate Current User
+- Handling Shorten URL Requests via POST and Generating Unique Shortcodes
+- Creating a Schema for Shortened URLs Using Drizzle ORM
+- Refactoring: Extracting URL Creation Logic
+- Implementing Redirection Logic from Short URL
+- Fetching All Shortened URLs by the Logged-In User
+- Deleting URL with Ownership and Authorization
+
+## Mastering Docker for Developers- From Basics to CLI and Dockerfile- Bonus
+
+- Introduction to Docker and the Rise of Containerization in DevOps
+- Real-World Problem That Docker Solves in Modern Development
+- Understanding the Difference Between Docker and Virtual Machines
+- How to Install Docker on Your System for Local Development
+- Docker Containers vs Docker Images: What's the Difference?
+- Introduction to Docker CLI and Commonly Used Commands
+- Running Docker Containers Using the CLI with Practical Examples
+- Working with Docker Images Through Command-Line Interface (CLI)
+- Exploring Docker Container Commands for Management and Debugging
+- Creating and Using a Dockerfile to Containerize Node.js Apps
+- Best Practices to Optimize Docker Images for Speed and Performance
+- Understanding and Implementing Port Mapping in Docker Containers
+- Auto Port Mapping in Docker: Dynamic Exposure of Container Ports
+- Publishing Docker Images to Docker Hub or Private Registries
+- Building Optimized Multi-Stage Docker Images for Production Use
+- Security Best Practices for Running Docker Containers Safely
+- Understanding Docker Bridge Networking for Container Communication
+- Creating and Using Custom Docker Bridges for Network Isolation
+- Docker Other Modes of Networking
+- Attaching Host Machine Volumes to Docker Containers for Data Sharing
+- Creating and Managing Custom Named Volumes in Docker for Persistence
+- Introduction to Docker Compose
+- Networking in Docker Compose
+- Volume in Docker Compose
+- Custom Docker builds
+- Introduction to Docker Orchestration and Why It’s Crucial for Production
+- Creating and Configuring a New AWS Account for ECS Deployment
+- Setting Up Amazon Elastic Container Registry (ECR) to Push Docker Images
+- Launching and Configuring ECS Clusters to Run Docker Containers
+- Defining ECS Tasks and Creating Task Definitions for Container Execution
+- Deploying ECS Services with Load Balancer for High Availability
+- Cleaning Up AWS ECS and ECR Resources to Avoid Unnecessary Billing
+- Debugging and Fixing ECS Health Check Failures During Container Deployment
+
+## MongoDB Aggregation 
+
+- Mongodb agreegation setup
+- Grouping in mongodb
+- Group sum and more
+- Dealing with arrays in aggregation
+- Match and project pipeline
+- Match all operators of aggregation
+- Lookup in Mongodb aggregation
+
+## Building our own Basecamp - Project Management Platform
+
+- Building a fresh Backend focused project
+- Understand the PRD
+- Preparing node project for backend
+- Add prettier and git to the code base
+- Auto Restart your server with nodemon
+- Dot env files on backend
+- A professional project structure
+- Setup of basic express server
+- Introducing postman for API testing
+- Separation of app with index
+- Express configuration and CORS
+- Standard ApiResponse and API errors
+- Keeping data in constants
+- How to connect with mongoDB
+- A guide on mongodb Atlas connection
+- Write a healthcheck controller and routes
+- Catch errors better with async Handlers
+- Learn to write user schema in mongoose
+- Hash the password with pre hooks of mongoose
+- Learn to handle mongoose methods
+- What are JWT Tokens
+- Theory behind Access token and refresh token
+- Code for access and refresh token with crypto module
+- How to generate email templates
+- How to send emails in nodejs
+- How to register a user
+- Routers for registering a user
+- Test register route with postman
+- Writing custom validations
+- Login user with tokens and cookie data
+- Login validation and testing
+- Write auth middleware
+- How to securely logout a user
+- Refresh Access token and resend verification email.mp4
+- All password related controllers like forgot password and reset password
+- All routes and validators of auth
+
+## Mastering System Design: Scaling Strategies Architecture Patterns, etc
+
+- Section Introduction - Introduction to system design
+- Scaling System for One User
+- Vertical Scaling
+- Horizontal Scaling
+- DB Scaling Multi Read Replication
+- DB Scaling Data Sharding
+- Monolith Service Achitecture
+- Microservice Achitecture
+- HPA Microservice and API Gateway
+- Microservice Achitecture Comunication (HTTP SYNC)
+- Microservice Achitecture Comunication (Queue ASYNC)
+- PubNub vs Queue and Fan Out Archiecture
+- Consistent Hashing Part-1 Problem Statement
+- Consistent Hashing Part-2 Solution
+- Event Driven Architecture
+- Event Sourcing
+
+## Git - Bonus
+
+- Introduction to GIT series
+- Git init and hidden folder
+- Git commits and logs
+- Git internal working and configs
+- Git merge and git conflicts
+- Git Diff and stashing
+- Git rebase is not that scary
+- Insight of pushing code to github
+- How to make Pull Request and Open Source contribution
+
+
+-------------------------
