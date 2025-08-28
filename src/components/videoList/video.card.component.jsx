@@ -1,5 +1,6 @@
 
 const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
+  // console.log(video)
   const title = video.snippet.title;
   const channelTitle = video.snippet.channelTitle;
   const thumbnails = video.snippet.thumbnails.high.url;

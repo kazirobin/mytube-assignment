@@ -11,9 +11,14 @@ class App extends Component {
     Suggestion: false,
     activeVideo: null,
     type: "video",
+    part: "snippet",
     filter: false,
     maxResults: 6,
+    isPlaylistMode: false,
+    count: 1,
   };
+  // key = import.meta.env.VITE_API_KEY_1;
+
   handleFilter = () => {
     this.setState((prevState) => ({
       filter: !prevState.filter,
@@ -28,7 +33,7 @@ class App extends Component {
     this.setState((prevState) => ({
       maxResults: prevState.maxResults + 3,
     }));
-    console.log("maxresults",this.state.maxResults)
+    // console.log("maxresults", this.state.maxResults);
   };
   handleSuggestion = (condition) => {
     this.setState(() => ({
@@ -36,48 +41,94 @@ class App extends Component {
     }));
   };
   handleVideoMedia = (item) => {
-    this.setState({ activeVideo: item });
-    // console.log(item)
-    const prevList = this.state.videoList;
-    const filter = prevList.filter((items) => items.id !== item.id);
-    this.setState({ videoList: filter });
+    console.log("handlevido media call");
+    console.log(item);
+    if (item.id.kind === "youtube#video") {
+      this.setState({ activeVideo: item, isPlaylistMode: false });
+      const prevList = this.state.videoList;
+      const filter = prevList.filter((items) => items.id !== item.id);
+      this.setState({ videoList: filter });
+    } else {
+      const playlistId = item.id.playlistId;
+      this.fetchPlaylistVideos(playlistId);
+    }
+  };
+  fetchPlaylistVideos = (playlistId) => {
+    const { part, count } = this.state;
+    const baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
+    const key = import.meta.env[`VITE_API_KEY_${count}`];
+    const url = `${baseUrl}?key=${key}&playlistId=${playlistId}&part=${part}&maxResults=50`;
+    const response = axios.get(url);
+    response
+      .then((response) => {
+        const normalizeVideos = response.data.items.map((items) => ({
+          id: {
+            kind: "youtube#video",
+            videoId: items.snippet.resourceId.videoId,
+          },
+          snippet: items.snippet,
+        }));
+        this.setState({
+          videoList: normalizeVideos,
+          type: "video",
+          isPlaylistMode: true,
+        });
+        console.log("playlist now updated");
+      })
+      .catch((error) => {
+        console.error("api Error Massage: ", error.message);
+      });
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
   };
   handleSearchButton = () => {
-    const baseUrl = "https://www.googleapis.com/youtube/v3/search";
-    const { searchText, type,maxResults } = this.state;
-    const part = "snippet";
-
-    const key = import.meta.env.VITE_API_KEY_2;
+    const baseUrl = `https://www.googleapis.com/youtube/v3/search`;
+    const { searchText, type, part, maxResults, count } = this.state;
+    const key = import.meta.env[`VITE_API_KEY_${count}`];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
     response
       .then((response) => {
-        this.setState({ videoList: response.data.items });
+        this.setState({
+          videoList: response.data.items,
+          activeVideo: null,
+          isPlaylistMode: false,
+        });
       })
       .catch((error) => {
         console.error("api Error Massage: ", error.message);
+        this.setState(
+          (prevState) => ({
+            count: prevState.count < 6 ? prevState.count + 1 : 1,
+          }),
+          () => {
+            this.handleSearchButton();
+          }
+        );
+        console.log(this.state.count);
       });
-    console.log(" api call");
+    console.log("Api is calling... ");
+    console.log(this.state.count);
   };
   searchTimeout = null;
-  componentWillMount() {
+  componentDidMount() {
     this.handleSearchButton();
   }
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.searchText !== this.state.searchText ||
-      prevState.type !== this.state.type ||
-      prevState.maxResults !== this.state.maxResults
-    ) {
-      if (this.searchTimeout) {
-        clearTimeout(this.searchTimeout);
+    if (!this.state.isPlaylistMode) {
+      if (
+        prevState.searchText !== this.state.searchText ||
+        prevState.type !== this.state.type ||
+        prevState.maxResults !== this.state.maxResults
+      ) {
+        if (this.searchTimeout) {
+          clearTimeout(this.searchTimeout);
+        }
+        this.searchTimeout = setTimeout(() => {
+          this.handleSearchButton();
+        }, 500);
       }
-      this.searchTimeout = setTimeout(() => {
-        this.handleSearchButton();
-      }, 500);
     }
   }
   render() {
