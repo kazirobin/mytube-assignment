@@ -11,10 +11,14 @@ class App extends Component {
     Suggestion: false,
     activeVideo: null,
     type: "video",
+    part: "snippet",
     filter: false,
     maxResults: 6,
     isPlaylistMode: false,
+    count: 1,
   };
+  // key = import.meta.env.VITE_API_KEY_1;
+
   handleFilter = () => {
     this.setState((prevState) => ({
       filter: !prevState.filter,
@@ -29,7 +33,7 @@ class App extends Component {
     this.setState((prevState) => ({
       maxResults: prevState.maxResults + 3,
     }));
-    console.log("maxresults", this.state.maxResults);
+    // console.log("maxresults", this.state.maxResults);
   };
   handleSuggestion = (condition) => {
     this.setState(() => ({
@@ -43,27 +47,33 @@ class App extends Component {
       this.setState({ activeVideo: item, isPlaylistMode: false });
       const prevList = this.state.videoList;
       const filter = prevList.filter((items) => items.id !== item.id);
-      this.setState({ videoList: prevList });
+      this.setState({ videoList: filter });
     } else {
       const playlistId = item.id.playlistId;
       this.fetchPlaylistVideos(playlistId);
     }
   };
   fetchPlaylistVideos = (playlistId) => {
-    const { maxResults } = this.state;
-    const key = import.meta.env.VITE_API_KEY_4;
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?key=${key}&playlistId=${playlistId}&part=snippet&maxResults=50`;
-
-    console.log(url);
+    const { part, count } = this.state;
+    const baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
+    const key = import.meta.env[`VITE_API_KEY_${count}`];
+    const url = `${baseUrl}?key=${key}&playlistId=${playlistId}&part=${part}&maxResults=50`;
     const response = axios.get(url);
     response
       .then((response) => {
-        const normalizeVideos = response.data.items.map((items) => ({id:{kind:"youtube#video",videoId:items.snippet.resourceId.videoId},snippet:items.snippet  })) 
+        const normalizeVideos = response.data.items.map((items) => ({
+          id: {
+            kind: "youtube#video",
+            videoId: items.snippet.resourceId.videoId,
+          },
+          snippet: items.snippet,
+        }));
         this.setState({
           videoList: normalizeVideos,
           type: "video",
           isPlaylistMode: true,
         });
+        console.log("playlist now updated");
       })
       .catch((error) => {
         console.error("api Error Massage: ", error.message);
@@ -71,24 +81,35 @@ class App extends Component {
   };
   handleSearchInput = (event) => {
     this.setState({ searchText: event.target.value });
-  
   };
   handleSearchButton = () => {
     const baseUrl = `https://www.googleapis.com/youtube/v3/search`;
-    const { searchText, type, maxResults } = this.state;
-    const part = "snippet";
-
-    const key = import.meta.env.VITE_API_KEY_4;
+    const { searchText, type, part, maxResults, count } = this.state;
+    const key = import.meta.env[`VITE_API_KEY_${count}`];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
     response
       .then((response) => {
-        this.setState({ videoList: response.data.items, activeVideo: null,isPlaylistMode:false });
+        this.setState({
+          videoList: response.data.items,
+          activeVideo: null,
+          isPlaylistMode: false,
+        });
       })
       .catch((error) => {
         console.error("api Error Massage: ", error.message);
+        this.setState(
+          (prevState) => ({
+            count: prevState.count < 6 ? prevState.count + 1 : 1,
+          }),
+          () => {
+            this.handleSearchButton();
+          }
+        );
+        console.log(this.state.count);
       });
-    console.log(" api call");
+    console.log("Api is calling... ");
+    console.log(this.state.count);
   };
   searchTimeout = null;
   componentDidMount() {
