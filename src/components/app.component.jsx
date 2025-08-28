@@ -88,6 +88,7 @@ class App extends Component {
     const key = import.meta.env[`VITE_API_KEY_${count}`];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
+    console.log(">>>>>",response)
     response
       .then((response) => {
         this.setState({
