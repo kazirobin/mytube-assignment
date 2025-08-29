@@ -1,8 +1,4 @@
-
 const VideoDetails = ({ activeVideo }) => {
-  if (!activeVideo) {
-    return <h1 className="text-white">Please selext a Video </h1>;
-  }
   const { title, channelTitle, description } = activeVideo.snippet;
   return (
     <>

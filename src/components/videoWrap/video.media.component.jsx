@@ -1,10 +1,5 @@
-
 const VideoMedia = ({ activeVideo }) => {
-  if (!activeVideo) {
-    return <h1 className="text-white">Please selext a Video </h1>;
-  }
   const { videoId } = activeVideo.id;
-  // console.log(activeVideo.id.kind)
   if (activeVideo.id.kind === "youtube#video") {
     return (
       <>
@@ -19,10 +14,8 @@ const VideoMedia = ({ activeVideo }) => {
         ></iframe>
       </>
     );
-  }else{
-    return (
-      <h1 className="text-white">this is a playlist</h1>
-    )
+  } else {
+    return <></>;
   }
 };
 

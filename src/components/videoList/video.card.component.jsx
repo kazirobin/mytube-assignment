@@ -1,9 +1,12 @@
-
 const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
-  // console.log(video)
-  const title = video.snippet.title;
-  const channelTitle = video.snippet.channelTitle;
-  const thumbnails = video.snippet.thumbnails.high.url;
+  const {
+    title,
+    channelTitle,
+    thumbnails: {
+      high: { url },
+    },
+  } = video.snippet;
+
   return (
     <div
       className={`rounded-xl overflow-hidden shadow-md cursor-pointer ${
@@ -14,7 +17,7 @@ const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
       }}
     >
       <img
-        src={thumbnails}
+        src={url}
         alt={title}
         className="w-full h-auto object-cover md:h-full col-span-2 "
       />
