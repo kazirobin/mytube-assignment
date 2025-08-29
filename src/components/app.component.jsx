@@ -88,7 +88,7 @@ class App extends Component {
     const key = import.meta.env[`VITE_API_KEY_${count}`];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
-    console.log(">>>>>",response)
+    console.log(">>>>>", response);
     response
       .then((response) => {
         this.setState({
@@ -133,36 +133,42 @@ class App extends Component {
     }
   }
   render() {
-    const {searchText,videoList,suggestion} = this.state
+    const { searchText, videoList, suggestion, type, filter, activeVideo } =
+      this.state;
+    const {
+      handleSearchInput,
+      handleSearchButton,
+      handleVideoMedia,
+      handleSuggestion,
+      handleType,
+      handleFilter,
+      handleMaxResults,
+    } = this;
     return (
       <div className="min-h-screen bg-black">
         <NavBar
-          searchText={this.state.searchText}
-          handleSearchInput={this.handleSearchInput}
-          handleSearchButton={this.handleSearchButton}
-          handleVideoMedia={this.handleVideoMedia}
-          videoList={this.state.videoList}
-          handleSuggestion={this.handleSuggestion}
-          suggestion={this.state.suggestion}
-          type={this.state.type}
-          handleType={this.handleType}
-          filter={this.state.filter}
-          handleFilter={this.handleFilter}
+          searchText={searchText}
+          handleSearchInput={handleSearchInput}
+          handleSearchButton={handleSearchButton}
+          handleVideoMedia={handleVideoMedia}
+          videoList={videoList}
+          handleSuggestion={handleSuggestion}
+          suggestion={suggestion}
+          type={type}
+          handleType={handleType}
+          filter={filter}
+          handleFilter={handleFilter}
         />
         <div className="grid grid-cols-1 md:grid-cols-5  p-4">
-          <div className={`${this.state.activeVideo ? "md:col-span-3" : ""}`}>
-            <VideoWrapper activeVideo={this.state.activeVideo} />
+          <div className={`${activeVideo ? "md:col-span-3" : ""}`}>
+            <VideoWrapper activeVideo={activeVideo} />
           </div>
-          <div
-            className={` ${
-              this.state.activeVideo ? "md:col-span-2" : "col-span-5"
-            }`}
-          >
+          <div className={` ${activeVideo ? "md:col-span-2" : "col-span-5"}`}>
             <VideoLists
-              videoList={this.state.videoList}
-              handleVideoMedia={this.handleVideoMedia}
-              activeVideo={this.state.activeVideo}
-              handleMaxResults={this.handleMaxResults}
+              videoList={videoList}
+              handleVideoMedia={handleVideoMedia}
+              activeVideo={activeVideo}
+              handleMaxResults={handleMaxResults}
             />
           </div>
         </div>
