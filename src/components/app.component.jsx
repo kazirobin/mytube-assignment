@@ -125,7 +125,7 @@ class App extends Component {
     }
   }
   render() {
-    const { searchText, videoList, suggestion, type, filter, activeVideo } =
+    const { searchText, videoList, suggestion, type, filter, activeVideo,isPlaylistMode } =
       this.state;
     const {
       handleSearchInput,
@@ -161,6 +161,7 @@ class App extends Component {
               handleVideoMedia={handleVideoMedia}
               activeVideo={activeVideo}
               handleMaxResults={handleMaxResults}
+              isPlaylistMode={isPlaylistMode}
             />
           </div>
         </div>
