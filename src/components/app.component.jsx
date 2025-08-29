@@ -17,8 +17,6 @@ class App extends Component {
     isPlaylistMode: false,
     count: 1,
   };
-  // key = import.meta.env.VITE_API_KEY_1;
-
   handleFilter = () => {
     this.setState((prevState) => ({
       filter: !prevState.filter,
@@ -33,23 +31,21 @@ class App extends Component {
     this.setState((prevState) => ({
       maxResults: prevState.maxResults + 3,
     }));
-    // console.log("maxresults", this.state.maxResults);
   };
   handleSuggestion = (condition) => {
     this.setState(() => ({
       suggestion: condition,
     }));
   };
-  handleVideoMedia = (item) => {
-    console.log("handlevido media call");
-    console.log(item);
+  handleVideoMedia = (activeVideo) => {
+    console.log("handle Video Media call");
     if (item.id.kind === "youtube#video") {
-      this.setState({ activeVideo: item, isPlaylistMode: false });
-      const prevList = this.state.videoList;
-      const filter = prevList.filter((items) => items.id !== item.id);
-      this.setState({ videoList: filter });
+      const videoList = this.state.videoList.filter(
+        (item) => item.id !== activeVideo.id
+      );
+      this.setState({ activeVideo, isPlaylistMode: false, videoList });
     } else {
-      const playlistId = item.id.playlistId;
+      const playlistId = activeVideo.id.playlistId;
       this.fetchPlaylistVideos(playlistId);
     }
   };
@@ -99,14 +95,9 @@ class App extends Component {
       })
       .catch((error) => {
         console.error("api Error Massage: ", error.message);
-        this.setState(
-          (prevState) => ({
-            count: prevState.count < 6 ? prevState.count + 1 : 1,
-          }),
-          () => {
-            this.handleSearchButton();
-          }
-        );
+        this.setState((prevState) => ({
+          count: prevState.count < 6 ? prevState.count + 1 : 1,
+        }));
         console.log(this.state.count);
       });
     console.log("Api is calling... ");
@@ -121,6 +112,7 @@ class App extends Component {
       if (
         prevState.searchText !== this.state.searchText ||
         prevState.type !== this.state.type ||
+        prevState.count !== this.state.count ||
         prevState.maxResults !== this.state.maxResults
       ) {
         if (this.searchTimeout) {
