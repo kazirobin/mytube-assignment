@@ -14,6 +14,7 @@ const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
       }`}
       onClick={() => {
         handleVideoMedia(video);
+        console.log(video)
       }}
     >
       <img

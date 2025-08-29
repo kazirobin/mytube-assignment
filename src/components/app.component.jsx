@@ -38,8 +38,8 @@ class App extends Component {
     }));
   };
   handleVideoMedia = (activeVideo) => {
-    console.log("handle Video Media call");
-    if (item.id.kind === "youtube#video") {
+    // console.log("handle Video Media call");
+    if (activeVideo.id.kind === "youtube#video") {
       const videoList = this.state.videoList.filter(
         (item) => item.id !== activeVideo.id
       );
@@ -84,7 +84,6 @@ class App extends Component {
     const key = import.meta.env[`VITE_API_KEY_${count}`];
     const url = `${baseUrl}?key=${key}&q=${searchText}&part=${part}&maxResults=${maxResults}&type=${type}`;
     const response = axios.get(url);
-    console.log(">>>>>", response);
     response
       .then((response) => {
         this.setState({
@@ -95,13 +94,14 @@ class App extends Component {
       })
       .catch((error) => {
         console.error("api Error Massage: ", error.message);
-        this.setState((prevState) => ({
-          count: prevState.count < 6 ? prevState.count + 1 : 1,
-        }));
-        console.log(this.state.count);
+        this.setState((prevState) => {
+          if (prevState.count < 7 ) {
+            return { count: prevState.count + 1 };
+          }
+          return null;
+        });
       });
-    console.log("Api is calling... ");
-    console.log(this.state.count);
+    console.log("Api is calling... The Key Number is: ",this.state.count);
   };
   searchTimeout = null;
   componentDidMount() {
