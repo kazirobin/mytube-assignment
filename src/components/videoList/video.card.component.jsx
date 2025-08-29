@@ -2,11 +2,20 @@ const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
   const {
     title,
     channelTitle,
+    publishTime,
     thumbnails: {
       high: { url },
     },
   } = video.snippet;
-
+  const date = new Date(publishTime)
+  const options = {
+    timeZone: "Asia/Dhaka",
+    year:"numeric",
+    month:"long",
+    day:"numeric"
+  }
+  const formattedTime = new Intl.DateTimeFormat("en-US",options).format(date)
+  // console.log(formattedTime)
   return (
     <div
       className={`rounded-xl overflow-hidden shadow-md cursor-pointer ${
@@ -25,6 +34,8 @@ const VideoCard = ({ video, handleVideoMedia, activeVideo }) => {
       <div className="text-white  flex flex-col col-span-3 pt-2 ps-2">
         <h1 className="text-xl line-clamp-2 font-semibold ">{title}</h1>
         <p className="text-gray-500 font-bold text-sm ">{channelTitle}</p>
+        <p className="text-gray-500 font-bold text-sm ">{formattedTime}</p>
+
       </div>
     </div>
   );
