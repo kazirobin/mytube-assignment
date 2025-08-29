@@ -9,7 +9,7 @@ const Search = ({
   handleVideoMedia,
   videoList,
   handleSuggestion,
-  Suggestion,
+  suggestion,
   type,
   handleType,
   filter,
@@ -70,7 +70,7 @@ const Search = ({
             )}
           </button>
           <div className="absolute text-white left-0 top-10 block">
-            {Suggestion && (
+            {suggestion && (
               <Suggestions
                 handleVideoMedia={handleVideoMedia}
                 videoList={videoList}

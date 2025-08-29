@@ -1,4 +1,3 @@
-
 const Suggestions = ({ handleVideoMedia, videoList, handleSuggestion }) => {
   return (
     <ul
@@ -7,8 +6,9 @@ const Suggestions = ({ handleVideoMedia, videoList, handleSuggestion }) => {
         handleSuggestion(false);
       }}
     >
-      {/* Suggestions */}
+      
       {videoList.map((video, index) => {
+        const { title } = video.snippet;
         return (
           <li key={index}>
             <h1
@@ -17,11 +17,12 @@ const Suggestions = ({ handleVideoMedia, videoList, handleSuggestion }) => {
                 handleVideoMedia(video);
               }}
             >
-              {video.snippet.title}
+              {title}
             </h1>
           </li>
         );
       })}
+
     </ul>
   );
 };

@@ -8,7 +8,7 @@ const NavBar = ({
   handleVideoMedia,
   videoList,
   handleSuggestion,
-  Suggestion,
+  suggestion,
   type,
   handleType,
   filter,
@@ -38,7 +38,7 @@ const NavBar = ({
               handleVideoMedia={handleVideoMedia}
               videoList={videoList}
               handleSuggestion={handleSuggestion}
-              Suggestion={Suggestion}
+              suggestion={suggestion}
               type={type}
               handleType={handleType}
               filter={filter}

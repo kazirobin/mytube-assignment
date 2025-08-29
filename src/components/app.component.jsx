@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     searchText: "Saiyaara Title Song",
     videoList: [],
-    Suggestion: false,
+    suggestion: false,
     activeVideo: null,
     type: "video",
     part: "snippet",
@@ -37,7 +37,7 @@ class App extends Component {
   };
   handleSuggestion = (condition) => {
     this.setState(() => ({
-      Suggestion: condition,
+      suggestion: condition,
     }));
   };
   handleVideoMedia = (item) => {
@@ -133,6 +133,7 @@ class App extends Component {
     }
   }
   render() {
+    const {searchText,videoList,suggestion} = this.state
     return (
       <div className="min-h-screen bg-black">
         <NavBar
@@ -142,7 +143,7 @@ class App extends Component {
           handleVideoMedia={this.handleVideoMedia}
           videoList={this.state.videoList}
           handleSuggestion={this.handleSuggestion}
-          Suggestion={this.state.Suggestion}
+          suggestion={this.state.suggestion}
           type={this.state.type}
           handleType={this.handleType}
           filter={this.state.filter}
